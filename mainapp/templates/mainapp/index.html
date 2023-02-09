@@ -1,0 +1,22 @@
+<!-- Block content -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="cardContainer">
+    {% for i in objects %}
+    <div class="square">
+        <a href="{{ i.url }}"><img src="{{ i.image.url }}" class="mask"></a>
+        <div class="title">{{ i.title }}</div>
+        <p class="description">{{ i.description }}</p>
+        <div class="skillsContainer">
+            {% for v in i.tech.values %}
+            <a class="skills badge bg-light text-dark h-50 border border-dark">{{ v }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
